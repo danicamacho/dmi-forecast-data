@@ -1,4 +1,3 @@
-# import json
 from typing import Any, Dict, List
 
 import pandas as pd
@@ -70,8 +69,6 @@ class DMIForecastData:
         )
 
         if not raw_forecast:
-            pass
-            # TODO convert to Pandas df
-            # df = convert_to_pandas_df(data)
+            data = convert_to_pandas_df(data)
 
         return data
