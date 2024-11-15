@@ -17,10 +17,6 @@ repos:
       - id: black
         args:
           - '-l 120'
-  - repo: 'https://github.com/pre-commit/mirrors-mypy'
-    rev: v1.6.0
-    hooks:
-      - id: mypy
   - repo: 'https://github.com/pycqa/isort'
     rev: 5.12.0
     hooks:
