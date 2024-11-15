@@ -72,12 +72,15 @@ class DMIForecastData:
         """Get forecast from a given model and a pair of coordinates
 
         Args:
-            latitude (float): latitude of coordinates
-            longitude (float): longitude of coordinates
+            latitude (float): latitude of coordinates.
+            longitude (float): longitude of coordinates.
             model (str): name of the model
-            model_run (str, optional): datetime of the specific model run. Must be in "%Y-%m-%dT%H%M%SZ" format. Defaults to "latest".
-            parameters (List[str], optional): list of parameters to extract from the model. If an empty list, extracts all available parameters. Defaults to [].
-            raw_forecast (bool, optional): whether to return the raw response from the model or a Pandas DataFrame. Defaults to False.
+            model_run (str, optional): datetime of the specific model run.
+                Must be in "%Y-%m-%dT%H%M%SZ" format. Defaults to "latest".
+            parameters (List[str], optional): list of parameters to extract from the model.
+                If an empty list, extracts all available parameters. Defaults to [].
+            raw_forecast (bool, optional): whether to return the raw response from the model
+                or a Pandas DataFrame. Defaults to False.
 
         Returns:
             Dict | pd.DataFrame: Forecast. If raw_forecast=False, returns a Pandas DataFrame.

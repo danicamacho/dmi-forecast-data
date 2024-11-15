@@ -8,7 +8,7 @@ def check_date_format(date: str, format="%Y-%m-%dT%H%M%SZ"):
     """Raise error if the string is not the correct datetime format
 
     Args:
-        date (str): string containing date
+        date (str): string containing date.
         format (str, optional): datetime format. Defaults to "%Y-%m-%dT%H%M%SZ".
 
     Raises:
