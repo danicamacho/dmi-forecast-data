@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict
 
 import pandas as pd
 
@@ -20,11 +20,11 @@ def check_date_format(date: str, format="%Y-%m-%dT%H%M%SZ"):
         raise AttributeError(f"The given date {date} is not in the correct format {format}")
 
 
-def convert_to_pandas_df(raw_response: List[Dict]) -> pd.DataFrame:
+def convert_to_pandas_df(raw_response: Dict) -> pd.DataFrame:
     """Convert the API response into a Pandas dataframe
 
     Args:
-        raw_response (List[Dict]): API response with raw forecast
+        raw_response (Dict): API response with raw forecast
 
     Returns:
         pd.DataFrame: forecast in a Pandas Dataframe, including Timestamps
