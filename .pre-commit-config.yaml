@@ -1,0 +1,32 @@
+repos:
+  - repo: 'https://github.com/kynan/nbstripout'
+    rev: 0.5.0
+    hooks:
+      - id: nbstripout
+        files: \.ipynb$
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-docstring-first
+      - id: check-toml
+      - id: debug-statements
+  - repo: 'https://github.com/psf/black-pre-commit-mirror'
+    rev: 23.9.1
+    hooks:
+      - id: black
+        args:
+          - '-l 120'
+  - repo: 'https://github.com/pre-commit/mirrors-mypy'
+    rev: v1.6.0
+    hooks:
+      - id: mypy
+  - repo: 'https://github.com/pycqa/isort'
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+  - repo: 'https://github.com/PyCQA/autoflake'
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
