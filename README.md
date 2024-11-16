@@ -1,4 +1,4 @@
-# dmi-forecast-data
+# DMI Open Data
 
 Work in progress.
 
