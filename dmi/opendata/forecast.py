@@ -1,48 +1,16 @@
-from typing import Any, Dict, List
+from typing import Dict, List
 
 import pandas as pd
-import requests
 
-from dmi.utils import check_date_format, convert_to_pandas_df
+from dmi.opendata.client import DMIOpenClient
+from dmi.opendata.utils import check_date_format, convert_to_pandas_df
 
 
-class DMIForecastData:
-    _base_url = "https://dmigw.govcloud.dk/v1/forecastedr"
-
-    def __init__(self, api_key: str):
-        self.api_key = api_key
-
-    def _query(self, endpoint: str, params: Dict[str, Any], **kwargs) -> Dict:
-        """Query the given endpoing of the API
-
-        Args:
-            endpoint (str): enpoint of the API to query
-            params (Dict[str, Any]): Parameters to build the query
-
-        Raises:
-            ValueError: if API returns a different status than 200
-
-        Returns:
-            Dict: data of the API response
-        """
-        res = requests.get(
-            url=f"{self._base_url}/{endpoint}",
-            params={
-                "api-key": self.api_key,
-                **params,
-            },
-            **kwargs,
-        )
-
-        data = res.json()
-
-        http_status_code = data.get("http_status_code", 200)
-
-        if http_status_code != 200:
-            message = data.get("message")
-            raise ValueError(f"Failed HTTP request with HTTP status code {http_status_code} and message: {message}")
-
-        return data
+class DMIForecast(DMIOpenClient):
+    def __init__(self, api_key):
+        api = "forecastedr"
+        version = "v1"
+        super().__init__(api_key=api_key, version=version, api=api)
 
     def get_model_runs(self, model: str) -> List[str]:
         """Query the API to get available model runs (also called instances).
